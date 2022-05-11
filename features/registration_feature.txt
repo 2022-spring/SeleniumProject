@@ -1,0 +1,40 @@
+Feature: Registration
+=================================================
+Scenario: Sign up with valid test data
+
+Launch the browser
+Open the website 'http://automationpractice.com'
+Click on Sign in
+Verify 'authentication' is in the url
+enter email in the Create and Account box
+	'jdoeNum@email.com'
+	Num = '20220510828123'  #timestamp unique with every run 
+	email = 'jdoe20220510828123@mail.com'
+
+Click 'Create an account' button
+verify 'account-creation' in the current url
+Filling form:
+select 'Mr' radio button
+verify if Mr is selected
+Enter first name: John
+enter last name: Doe
+Enter the email or click to confirm
+enter password '12345'
+select Day '10'
+Select month 'December'
+select year '2000'
+Check 'Sign up for our newsletter' checkbox
+verify First name under address
+enter address: 123 Address st
+enter city: Brooklyn
+Select state: New York
+enter zip code: 11224
+select country : first country
+enter mobile number: '1234567894'
+enter address alias name: 'primary'
+Click Register button 
+verify 'controller=order' in the url
+close the browser
+
+=======================================
+Scenario: Negative case, missing required fields

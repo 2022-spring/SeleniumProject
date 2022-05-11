@@ -1,0 +1,77 @@
+//header/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]
+
+/html/body/div/div[1]/header/div[3]/div/div/div[1]/a/img
+
+//header/div[3]//div[1]/a/img
+
+//*[@id="header_logo"]/a/img
+
+---------------------------------
+//div[@id="header_logo"]/a/img
+
+//img[@alt="My Store"]
+
+//div[@id='someid']/../div[2]
+
+//*[@id="block_top_menu"]/ul/li[3]/a
+
+//*[@id="block_top_menu"]/ul/li[1]/ul/li[1]/ul/li[1]/a
+
+//div[@id="block_top_menu"]/a
+
+//*[@id="axeptio_overlay"]/div/div/div[1]/div[1]/div[1]/div/div[1]/div[1]/img
+
+//*[@id="block_top_menu"]/ul[3]/li[3]/a
+
+//*[@id="block_top_menu"]/../ul/li[1]/a
+
+/html/a/href/*[@id="block_top_menu"]/ul/li[3]/a
+
+//div[@id="block_top_menu"]/ul/li[3]/a
+
+//div[@id="block_top_menu"]/a
+
+//ul/li[3]/a[@title='T-shirts']
+
+# xpath : find elements with text 
+exact text in the element 
+//a[text()='Best Sellers']
+//tagname[text()='text inthe element']
+
+with partial text in element text, id, class, name ... : 
+//tagname[contains(text(), 'text inthe element')     ]
+//tagname[contains(@id, 'text inthe element')        ]
+//tagname[contains(@class, 'text inthe element')     ]
+
+//a[contains(text(), 'Sellers') ]
+
+//ul[contains(@class, 'active') ]  >> 1
+//ul[contains(@class, 'product_list') ]  >> 2 
+//ul[contains(@class, 'product_list') and contains(@class, 'active')]  >> 1 
+
+html: 
+<ul id='products_list'>
+  <li>abc </li>
+  <li>qwerty</li>
+  <li title='wow'>hello</li>
+</ul>
+ 
+xpath: 
+//ul[@id='products_list']/li[2] >> element -> <li>qwerty</li>
+
+//ul/li[2]
+
+<div asasdf asfsdafasf   />
+	<div> .... </div>
+	<div> .... </div>
+	<div> .... </div>
+</div>
+
+//div/div[3]
+
+
+
+
+
+
+
