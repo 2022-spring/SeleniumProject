@@ -72,6 +72,7 @@ selection.select_by_value('12')
 print("select year '2000'")  # drop down
 selection = Select(driver.find_element(By.ID, 'years'))  # find element with Select tagname
 selection.select_by_visible_text('2000  ')
+# @value is faster
 
 print("Check 'Sign up for our newsletter' checkbox")
 signup_checkbox = driver.find_element(By.ID, 'newsletter')
@@ -104,13 +105,15 @@ selection.select_by_index(1)  # index: '-' is 0, and 'United States' option is i
 # driver.find_element(By.ID, '').send_keys('1234567897')
 
 # print("enter address alias name: 'primary'")
-# driver.find_element(By.ID, '').send_keys('primary')
-#
-# print("Click Register button ")
-# driver.find_element(By.ID, '').click()
-#
-# print("verify 'controller=order' in the url")
-# assert 'controller=order' in driver.current_url, "Order page verification Failed"
+add_alias = driver.find_element(By.ID, '')
+add_alias.clear()
+add_alias.send_keys('primary')
+
+print("Click Register button ")
+driver.find_element(By.ID, '').click()
+
+print("verify 'controller=order' in the url")
+assert 'controller=order' in driver.current_url, "Order page verification Failed"
 
 print("# closing the whole browser")
 time.sleep(10)
