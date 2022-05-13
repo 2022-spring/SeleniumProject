@@ -128,7 +128,7 @@ Read and try out
 - https://www.w3schools.com/html/html_links.asp
 - https://www.w3schools.com/html/html_forms.asp (all other pages for html forms)
 
----
+
 
 ### What type of Elements we can see on the web page?
 Element types are defined by tags in the HTML document (DOM)
@@ -274,18 +274,12 @@ Some text here
 </input>
 ```
 
-- hw: https://www.w3schools.com/html/
-  - <tagname>Content goes here...</tagname>
-  - purple - tagname
-  - red - attribute
-  - blue - attribute value
-  - black - Content/text of the element
   
   **Tags to know:**
 ```html
-	links, images, forms (textbox, radio, checkbox, submit, fileupload, <input>, <label>, <select>, <textarea>, <button>)
-        div - container to holds the styled elements
-    CSS - styling document, goes along with html document 
+links, images, forms (textbox, radio, checkbox, submit, fileupload, <input>, <label>, <select>, <textarea>, <button>)
+    div - container to holds the styled elements
+CSS - styling document, goes along with html document 
 ```
 
 **NOTE: read about html click [here](https://www.w3schools.com/w3css/default.asp)**
@@ -410,7 +404,7 @@ The way of engineering your project, put your code in structured way:
     this will help you to better manager your execution
     - how to run regression suites
     
-- Page Object Modeling (designing patter)
+- Page Object Modeling (designing pattern)
     - handle locators and page functions of each page 
     - this is good when you work with complex project.
     - helps you to maintain changing web elements
