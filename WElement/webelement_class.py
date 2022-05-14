@@ -195,4 +195,35 @@ def test_drag_and_drop(driver):
 
 
 def test_hover_over_action(driver):
-    pass
+    """ Sample function to showcase hover over action."""
+    # driver = webdriver.Chrome()
+    # driver.maximize_window()
+    # driver.implicitly_wait(20)  # max wait time for all find element steps
+
+    wdwait = WebDriverWait(driver, 10)
+    # Test Data
+    url = "http://automationpractice.com"
+
+    # locators
+    p1_xpath = "//ul[@id='homefeatured']/li[1]"
+    add_to_cart_xpath = "//span[text()='Add to cart']"
+
+    print("############# test_hover_over_action started ###########")
+    print("# open the website: 'http://automationpractice.com'")
+    driver.get(url)
+
+    print("# hover over the first product in Featured list")
+    product1 = wdwait.until(EC.presence_of_element_located((By.XPATH, p1_xpath)))
+    actions = ActionChains(driver)
+    driver.execute_script("window.scrollBy(0, 500);")
+    time.sleep(1)
+    actions.move_to_element(product1).perform()
+
+    print("# click on Add to Cart")
+    button = wdwait.until(EC.element_to_be_clickable((By.XPATH, add_to_cart_xpath)))
+    # button.click()   # option 1
+    driver.execute_script('arguments[0].click();', button) # option 2
+
+    # time.sleep(1)
+    print("############# test_hover_over_action completed ###########")
+
