@@ -294,11 +294,13 @@ simulates browser action
 
 ```python
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+
 driver = webdriver.Chrome()
 
 driver.back()
 driver.forward()
-driver.find_element_by_xpath('somexpath')
+driver.find_element(By.XPATH, 'somexpath')
 driver.refresh()
 driver.get()
 driver.implicitly_wait(10)
@@ -343,10 +345,12 @@ Done topics:
 ```python
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+
 
 driver = webdriver.Chrome()
 
-element = driver.find_element_by_xpath('somexpath')
+element = driver.find_element(By.XPATH, 'somexpath')
 element.is_displayed()
 element.is_enabled()
 element.is_checked()
@@ -359,8 +363,8 @@ element.text   # property - you must not use parenthesis
 ```
 
 Assertion: 
-    - from python to verify something
-    - it generates pass/fail status in unittests
+- from python to verify something
+- it generates pass/fail status in unittests
 
 ```python
 Xpath="//tagname[@attribute='value']"

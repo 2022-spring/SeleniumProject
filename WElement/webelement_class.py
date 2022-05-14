@@ -1,6 +1,7 @@
 #   Chapter 4: Webelement properties and methods
 
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
@@ -12,7 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 def initialize_chrome():
     driver = webdriver.Chrome()
     driver.maximize_window()
-    driver.implicitly_wait(20)  # max wait time for all find element steps
+    driver.implicitly_wait(10)  # max wait time for all find element steps
     return driver
 
 
@@ -114,7 +115,7 @@ def test_explicit_wait(driver):
     # you need list of conditions from expected_conditions() class
 
     url = "https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver"
-    wdwait = WebDriverWait(driver, 30)     # step 1
+    wdwait = WebDriverWait(driver, 30)  # step 1
 
     print("########   test explicit wait started ##############")
     print("########   text_to_be_present_in_element ##############")
@@ -153,20 +154,45 @@ def test_explicit_wait(driver):
     print("######## element_to_be_clickable completed ########### ")
 
 
+def test_drag_and_drop(driver):
+    # driver = webdriver.Chrome()
+    # driver.maximize_window()
+    # driver.implicitly_wait(20)  # max wait time for all find element steps
+
+    print("############# test_drag_and_drop started ###########")
+    url = 'https://jqueryui.com/droppable/'
+    wdwait = WebDriverWait(driver, 10)
+
+    print("# open the website")
+    driver.get(url)
+    # time.sleep(2)
+    wdwait.until(EC.presence_of_element_located((By.ID, 'content')))
+
+    print("# find draggable element")
+    driver.switch_to.frame(0)  # option 1
+    # driver.switch_to.frame(driver.find_element(By.XPATH, "//iframe[@class='demo-frame']")) # option 2
+    element1 = driver.find_element(By.ID, 'draggable')
+
+    print("# find droppable box where we need to drop first element")
+    # element2 = driver.find_element(value='droppable')  # option 1
+    element2 = wdwait.until(EC.presence_of_element_located((By.ID, 'droppable')))  # option 2
+
+    print("# check the text before the action")
+    print(f"Text in target element: '{element2.text}'")
+
+    print("# perform drag and drop action on above elements")
+    actions = ActionChains(driver)
+    # option 1
+    # actions.drag_and_drop(element1, element2).perform()
+    # option 2
+    actions.click_and_hold(element1).perform()
+    actions.release(element2).perform()
+
+    print("# check the text after the action")
+    print(f"Text in target element: '{element2.text}'")
+    assert 'Dropped' in element2.text, "Drag and drop action failed."
+    print("######## test_drag_and_drop completed ################")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def test_hover_over_action(driver):
+    pass
