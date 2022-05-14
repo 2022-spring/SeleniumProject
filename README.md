@@ -385,17 +385,19 @@ WebDriver provides the WebDriverWait and
 expected_conditions classes to implement an explicit wait.
   [practice website](https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver)
 
-## 5. Advanced Techniques of Selenium WebDriver
-mouse movement, Executing JavaScript
+## 5. Chapter 9. Advanced Techniques of Selenium WebDriver 
 
-- Mouse movements: hover over on the element, drag and drop : ActionChains Class
-  *practice here: https://jqueryui.com/droppable/
+*practice here: https://jqueryui.com/droppable/*
 
-- execute js >> alternative of button.click()
-   (we have seen how to scroll down on the page)
+In this chapter, you will learn more about:
+- Creating tests that simulate keyboard or mouse events using the Actions class
+- Simulating mouse operations such as drag-and-drop and double-click
+- Running JavaScript code:  execute js >> alternative of button.click()
+    (we have seen how to scroll down on the page)
+- Capturing screenshots and movies of test runs
 
 
-## 6. Framework in Test Automation
+## 6. Chapter 8. Framework in Test Automation
 The way of engineering your project, put your code in structured way: 
 
 - Pytest - unit testing framework 
@@ -445,6 +447,14 @@ Pytest Fixtures
 
 - Performance testing (NO - jmeter, LoadRunner etc.)
 - Security Testing (i.e.Penetration testing, NO)
+
+### Self Study Materials: Chapter 10 Integration with Other Tools and Frameworks
+
+Videos to watch: 
+- [Bdd Framework Overview](https://drive.google.com/drive/folders/1dTlgpj4hBUGba-W-eyLr5JRTeBAVlJB-?usp=sharing)
+- [CI/CD pipelines and working with Jenkins and AWS](https://drive.google.com/drive/folders/1GEP_Bw_mQVpc2RDdZS3AIUk_UygyzwPA?usp=sharing)
+- [All Mock interviews to watch](https://drive.google.com/drive/folders/1oxyinen_o7BWBTrUSNzhhcvsrVXbUpI3?usp=sharing)
+
 
 ----- 
 **Automation practice websites:**
