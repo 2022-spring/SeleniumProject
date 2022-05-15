@@ -1,5 +1,3 @@
-from WElement.webelement_class import *
-
 driver = initialize_chrome()
 # driver = initialize_firefox()
 
