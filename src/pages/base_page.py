@@ -27,7 +27,6 @@ class BasePage:
 
     def enter_text_by_id(self, id, text):
         try:
-            # element = self.driver.find_element(By.ID, id)
             element = self.wdwait.until(EC.presence_of_element_located((By.ID, id)))
             element.send_keys(text)
         except (NoSuchElementException, TimeoutException) as err:
@@ -36,7 +35,6 @@ class BasePage:
 
     def select_from_dropdown_by_id_by_index(self, id, index_value):
         try:
-            # element = self.driver.find_element(By.ID, id)
             element = self.wdwait.until(EC.presence_of_element_located((By.ID, id)))
             selection = Select(element)  # find element with Select tagname
             selection.select_by_index(1)  # index: '-' is 0, and 'United States' option is index 1
