@@ -415,7 +415,54 @@ The way of engineering your project, put your code in structured way:
     - this is good when you work with complex project.
     - helps you to maintain changing web elements
     - Classes, Inheritance, encapsulation,  polymorphism
-  
+ 
+### General Understanding about Test Automation Frameworks
+
+
+#### 1. Data Driven Framework:
+Driver Script per scenario -> Data File -> input/output file
+Driver script per scenario >> Data file >> execution >> compare with expected results
+
+#### 2. Keyword Driven Framework:
+Driver Script > Keyword(steps consist of function names and inputs) >> data file
+
+
+#### 3. Behavior Driven Framework (from Test Automation perspective) 
+
+**Components of BDD Test Automation Framework
+
+1. src: 
+    a. Feature file: Gherkin scenarios (plain english using Given, When, Then keywords) 
+        Given I am in login page.
+		
+    b. Steps definition
+        @Given("I am in login page.")
+        def login():
+            # steps to login, code
+
+    c. pages: Page Object Modeling Design Pattern, The way of designing your selenium scripts 
+        - Object oriented programming concepts (class, object, Inheritance, encapsulation, polymorphism, abstraction)
+		
+    d. utilities.py | helper.py | generic_helper.py  >> functions to use to handle data file, reports, general python functions
+	
+    e. Fixture files (in pytest it is confest.py ), some framework config files
+	
+	
+2. Data 
+    - config.yml
+    - stocks_buy.yml
+
+3. Logs
+    - 05152022.log
+
+4. Reports 
+    - 051520221110052_stockbuy_report.html
+	
+
+
+
+--------
+ 
 ### PYTEST
 
 running tests : 
