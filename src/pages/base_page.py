@@ -4,6 +4,7 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
+from src.utilities import *
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -25,9 +26,24 @@ class BasePage:
             print(f"Error in click element by id, please check id='{id}'")
             print(f"Error message: {err}")
 
+    def click_element_by_xpath(self, xpath):
+        try:
+            self.wdwait.until(EC.element_to_be_clickable((By.XPATH, xpath))).click()
+        except (NoSuchElementException, TimeoutException) as err:
+            print(f"Error in click element by id, please check id='{xpath}'")
+            print(f"Error message: {err}")
+
+    def click_element_by_name(self, name):
+        try:
+            self.wdwait.until(EC.element_to_be_clickable((By.NAME, name))).click()
+        except (NoSuchElementException, TimeoutException) as err:
+            print(f"Error in click element by id, please check id='{name}'")
+            print(f"Error message: {err}")
+
     def enter_text_by_id(self, id, text):
         try:
             element = self.wdwait.until(EC.presence_of_element_located((By.ID, id)))
+            element.clear()
             element.send_keys(text)
         except (NoSuchElementException, TimeoutException) as err:
             print(f"Error in entering the text by id, please check id='{id}'")

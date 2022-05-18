@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 from selenium.webdriver.support.select import Select
+from src.utilities import *
 
 
 def initialize_browser(browser):
