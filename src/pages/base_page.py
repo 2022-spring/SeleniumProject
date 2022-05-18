@@ -58,3 +58,11 @@ class BasePage:
         except (NoSuchElementException, TimeoutException) as err:
             print(f"Error in select from drop down, please check id='{id}' and index='{index_value}'")
             print(f"Error message: {err}")
+
+    def is_element_selected_by_id(self, id):
+        element = self.wdwait.until(EC.presence_of_element_located((By.ID, id)))
+        return element.is_selected()
+
+    def is_element_displayed_by_id(self, id):
+        element = self.driver.find_element(By.ID, id)
+        return element.is_displayed()

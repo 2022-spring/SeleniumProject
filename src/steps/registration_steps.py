@@ -1,8 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-import time
 from selenium.webdriver.support.select import Select
+
+from src.pages.main_page import *
+from src.pages.authentication_page import *
 from src.utilities import *
 
 
@@ -23,35 +25,53 @@ def initialize_browser(browser):
 def open_website(driver, url):
     print("Browser initialized. Opening the website ...")
     driver.get(url)
+    time.sleep(1)
 
 
 def open_registration_form(driver, email):
-    driver.find_element(By.PARTIAL_LINK_TEXT, 'Sign in').click()
-    time.sleep(2)
+
+    # create objects of Page classes (Page Objects) - Page Factory
+    main_page = MainPage(driver)
+    auth_page = AuthenticationPage(driver)
+
+    # steps to be built from page methods
+    main_page.click_signin()
     print("Verify 'authentication' is in the url")
     assert 'authentication' in driver.current_url, "Authentication page verification Failed"
-
-    print("enter email in the Create and Account box")
-    # email = 'jdoe20220510828123@mail.com'
     print(f"email to register: '{email}'")
-    driver.find_element(By.ID, 'email_create').send_keys(email)
-    time.sleep(1)
-    print("Click 'Create an account' button")
-    driver.find_element(By.ID, 'SubmitCreate').click()
-    time.sleep(5)
+    auth_page.enter_signup_email(email)
+    auth_page.click_create_account_button()
+
+    # NOTE: in POM we used: object,classes, Inheritance, encapsulation (locators)
+
+    ########  old steps that was refactored with above lines  ##########
+    # driver.find_element(By.PARTIAL_LINK_TEXT, 'Sign in').click()
+    # time.sleep(2)
+    # print("Verify 'authentication' is in the url")
+    # assert 'authentication' in driver.current_url, "Authentication page verification Failed"
+    #
+    # print("enter email in the Create and Account box")
+    # # email = 'jdoe20220510828123@mail.com'
+    # print(f"email to register: '{email}'")
+    # driver.find_element(By.ID, 'email_create').send_keys(email)
+    # time.sleep(1)
+    # print("Click 'Create an account' button")
+    # driver.find_element(By.ID, 'SubmitCreate').click()
+    # time.sleep(5)
 
 
 def complete_registration_form(driver, first_name, last_name, password, email):
+
+    auth_page = AuthenticationPage(driver)
+
     print("verify 'account-creation' in the current url")
     assert 'account-creation' in driver.current_url, "Account creation page verification Failed"
 
     print("Filling form: ")
+    auth_page.select_title('Mr')
     print("select 'Mr' radio button")
-    mr_title = driver.find_element(By.ID, 'id_gender1')
-    mr_title.click()
-    time.sleep(1)
-    print("MR is selected or not? ", mr_title.is_selected())
-    assert mr_title.is_selected(), 'Title MR was not selected'
+    print("MR is selected or not? ")
+    assert auth_page.get_title_selected() == 'Mr', 'Title MR was not selected'
 
     print("Enter first name: John")
     driver.find_element(By.ID, 'customer_firstname').send_keys(first_name)
@@ -67,6 +87,7 @@ def complete_registration_form(driver, first_name, last_name, password, email):
 
     print("enter password '12345'")
     driver.find_element(By.ID, 'passwd').send_keys(password)
+    auth_page.enter_password(password)
 
     print("select Day '10'")  # drop down
     drop_down = driver.find_element(By.ID, 'days')  # find element with Select tagname
