@@ -2,8 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
+import pytest
 
 
+@pytest.mark.smoke
+@pytest.mark.regression
 def test_sample_scenario():
     # initializing the chrome driver
     driver = webdriver.Chrome()
@@ -19,6 +22,7 @@ def test_sample_scenario():
 
     driver.close()
 
+
+@pytest.mark.regression
 def test_second_scenario():
     print("This is the sample scenario for pytest")
-
