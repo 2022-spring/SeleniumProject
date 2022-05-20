@@ -25,11 +25,11 @@ email = f"jdoe{get_timestamp()}@mail.com"
 def test_registration_scenario1(driver):
     print("# test case steps here")
     open_website(driver, url)
-    # open_registration_form(driver, email)
-    # complete_registration_form(driver, first_name, last_name, password, email)
-    #
-    # print("verify 'controller=order' in the url")
-    # is_keyword_in_url(driver, 'controller=order')
+    open_registration_form(driver, email)
+    complete_registration_form(driver, first_name, last_name, password, email)
+
+    print("verify 'controller=order' in the url")
+    is_keyword_in_url(driver, 'controller=order')
 
 
 def test_regression_scenario2(driver):

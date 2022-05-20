@@ -526,13 +526,11 @@ Videos to watch:
 5. [Socratica playlist in youtube](https://youtu.be/bY6m6_IIN94)
 
 
-
-
-
-
-
-
-
-
-
-
+### Expectations and todo list for next 2-3 weeks
+- sql brush up quick reference >> sqlzoo.net 
+- linux brush up with quick reference sheet
+- qa engineer: 
+  - python: hackerrank for problem solving
+  - how to execute automation tests with jenkins and aws (ec2 - virtual machine)
+  - api automation: you can find useful quick course in udemy.com
+  - selenium python and pytest : quick courses in udemy.com 

@@ -11,6 +11,5 @@ def driver():
     driver = initialize_browser('chrome')
 
     yield driver
-
     print(" ############### This is the TearDown steps ##################")
     close_browser(driver)
