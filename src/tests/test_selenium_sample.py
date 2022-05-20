@@ -5,24 +5,27 @@ import time
 import pytest
 
 
+@pytest.fixture
+def browser():
+    # initializing the chrome driver
+    return webdriver.Chrome()
+
+
 @pytest.mark.smoke
 @pytest.mark.regression
-def test_sample_scenario():
-    # initializing the chrome driver
-    driver = webdriver.Chrome()
-
+def test_sample_scenario(browser):
     # test scenario starts here
-    driver.get("https://www.google.com/")
+    browser.get("https://www.google.com/")
     time.sleep(5)
 
-    search_box = driver.find_element(By.NAME, 'q')
+    search_box = browser.find_element(By.NAME, 'q')
     search_box.send_keys("selenium")
     search_box.send_keys(Keys.ENTER)
     time.sleep(5)
 
-    driver.close()
+    browser.close()
 
 
 @pytest.mark.regression
-def test_second_scenario():
+def test_second_scenario(browser):
     print("This is the sample scenario for pytest")

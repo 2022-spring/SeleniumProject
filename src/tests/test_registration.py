@@ -14,12 +14,16 @@ email = f"jdoe{get_timestamp()}@mail.com"
 
 
 # SCENARIO
+@pytest.fixture
+def driver():
+    """Pre set up steps that can be passed to another functions"""
+    return initialize_browser('chrome')
+
 
 @pytest.mark.smoke
 @pytest.mark.regression
-def test_registration_scenario1():
+def test_registration_scenario1(driver):
     print("# test case steps here")
-    driver = initialize_browser('chrome')
     open_website(driver, url)
     # open_registration_form(driver, email)
     # complete_registration_form(driver, first_name, last_name, password, email)
@@ -29,5 +33,5 @@ def test_registration_scenario1():
     close_browser(driver)
 
 
-def test_regression_scenario2():
+def test_regression_scenario2(driver):
     print("This is the regression scenario 2 ##############")
