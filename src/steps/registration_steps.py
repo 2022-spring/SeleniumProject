@@ -147,5 +147,5 @@ def is_keyword_in_url(driver, keyword):
 
 def close_browser(driver):
     print("# closing the whole browser")
-    time.sleep(10)
+    time.sleep(5)
     driver.quit()

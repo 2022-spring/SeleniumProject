@@ -14,10 +14,10 @@ email = f"jdoe{get_timestamp()}@mail.com"
 
 
 # SCENARIO
-@pytest.fixture
-def driver():
-    """Pre set up steps that can be passed to another functions"""
-    return initialize_browser('chrome')
+# @pytest.fixture
+# def driver():
+#     """Pre-setup steps that can be passed to another function"""
+#     return initialize_browser('chrome')
 
 
 @pytest.mark.smoke
@@ -30,7 +30,6 @@ def test_registration_scenario1(driver):
     #
     # print("verify 'controller=order' in the url")
     # is_keyword_in_url(driver, 'controller=order')
-    close_browser(driver)
 
 
 def test_regression_scenario2(driver):
