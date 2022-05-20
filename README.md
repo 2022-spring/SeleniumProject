@@ -467,6 +467,10 @@ Driver Script > Keyword(steps consist of function names and inputs) >> data file
 
 running tests : 
 ```python
+pytest    # this will run all tests under your project
+pytest src/tests/test_selenium_sample.py   # all scenarios in this file
+pytest src/tests/test_selenium_sample.py::test_sample_scenario   # runs one scenario in this file
+
 pytest -s -v test_scenarios.py
 pytest -s -v test_scenarios.py::test_sample_pytst
 

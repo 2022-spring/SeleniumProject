@@ -106,7 +106,7 @@ def working_with_alerts(driver):
     time.sleep(2)
 
 
-def test_explicit_wait(driver):
+def tes_explicit_wait(driver):
     # driver = webdriver.Chrome()
     # driver.maximize_window()
     # driver.implicitly_wait(20)  # max wait time for all find element steps
@@ -154,7 +154,7 @@ def test_explicit_wait(driver):
     print("######## element_to_be_clickable completed ########### ")
 
 
-def test_drag_and_drop(driver):
+def tes_drag_and_drop(driver):
     # driver = webdriver.Chrome()
     # driver.maximize_window()
     # driver.implicitly_wait(20)  # max wait time for all find element steps
@@ -194,7 +194,7 @@ def test_drag_and_drop(driver):
     print("######## test_drag_and_drop completed ################")
 
 
-def test_hover_over_action(driver):
+def tes_hover_over_action(driver):
     """ Sample function to showcase hover over action."""
     # driver = webdriver.Chrome()
     # driver.maximize_window()

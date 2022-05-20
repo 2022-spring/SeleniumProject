@@ -2,7 +2,7 @@ import time
 import yaml
 from os.path import abspath, dirname
 
-ROOT_DIR = dirname(abspath(__file__))
+ROOT_DIR = dirname(dirname(abspath(__file__)))
 
 
 def load_yaml_file(filepath):
